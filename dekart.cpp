@@ -32,3 +32,9 @@ std::pair<Node*, Node*> split(int x, Node* R) {
         return {r.first, R};
     }
 }
+
+void insert(int x, Node*& R) {
+    auto r = split(x, R);
+    Node *n = new Node(x);
+    R = merge(r.first, merge(n, r.second));
+}
